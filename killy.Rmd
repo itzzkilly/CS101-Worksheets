@@ -1,0 +1,151 @@
+---
+title: "RWorksheet_Magallanes#1"
+author: "Killy Magallanes"
+date: "2024-09-20"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+1.Set up a vector named age.
+```{r}
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29,35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42,53, 41,51, 35, 24, 33, 41)
+```
+a.How many data points.
+```{r}
+num_data_points <- length(age)
+num_data_points
+```
+2. Find the Reciprocal of the values of age.
+```{r}
+reciprocal_age <- 1 / age
+reciprocal_age
+```
+3. Assign also new_age <- c(age, 0, age).
+```{r}
+new_age <- c(age, 0, age)
+new_age
+```
+what  happened to  the  new_age?
+- The new_age has 0 between the 2 ages
+
+4. Sort the values for age.
+```{r}
+sort(age)
+```
+
+5. Find the minimum and maximum value for age.
+```{r}
+min(age)
+max(age)
+```
+
+6. Set up a vector named data.
+```{r}
+data <- c(2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5, 2.3, 2.5, 2.3, 2.4, 2.7)
+```
+How many data points?
+```{r}
+nmbrofdtps <- length(data)
+nmbrofdtps
+```
+
+
+7. Generate a new vector for data where you double every value ofthe data.
+```{r}
+newData <- 2 * data
+newData
+```
+what happened to  the data?
+-The data doubles and was multiplied by  2
+
+8. Generate a sequence for the following scenario.
+
+8.1 Integers from 1 to 100.
+```{r}
+Int <- seq(1:100)
+Int
+```
+8.2 Numbers from 20 to 60.
+```{r}
+Num <- seq(from=20,to=60)
+Num
+```
+8.3 Mean of numbers from 20 to 60.
+```{r}
+Num <- seq(from=20, to=60)
+num20to60 <- mean(Num)
+num20to60
+```
+8.4 Sum of numbers from 51 to 91.
+```{r}
+Num <- sum(51:91)
+Num
+```
+8.5 Integers from 1 to 1000.
+```{r}
+Int <- seq(1:1000)
+Int
+```
+a. How many data points from 8.1 to 8.4?
+```{r}
+datapoints <- length(8.1:8.4)
+datapoints
+```
+c. For 8.5, find only the maximum datapoints until 10
+```{r}
+mxdtpts <- Int[1:10]
+mxdtpts
+length(mxdtpts)
+```
+9. Print a vector with the integers between 1 and 100 that are notdivisible by 3, 5 and 7 using filte roption
+```{r}
+Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
+```
+10. Generate a sequence backwards of the integers from 1 to 100.
+```{r}
+rev(seq(1:100))
+```
+11. List all the natural numbers below 25 that are multiples of 3or 5.
+```{r}
+x <- Filter(function(i) {any(i %% c(3,5) ==0)}, seq(24))
+Sum_of_x <- sum(x)
+Sum_of_x
+```
+
+a. How many data points from 10 to 11?
+```{r}
+datapt <- length(10:11)
+datapt
+```
+12.
+```{r}
+#x <- {0 + x + 5 + }
+#This string has syntax error therefore it could'nt run.
+```
+13.
+```{r}
+score <- c(72, 86, 92, 63, 88, 89, 91, 92, 75, 75,77.)
+s2 <- score[2]
+s2
+s3 <- score[3]
+s3
+```
+14. *Create a vector a = c(1,2,NA,4,NA,6,7).
+```{r}
+a <- c(1, 2 ,NA, 4, NA, 6, 7)
+print(a,na.print="-999")
+print(a,na.print="-999")
+```
+15
+```{r}
+name = readline(prompt="Input your name: ")
+age = readline(prompt="Input your age: ")
+print(paste("My name is",name, "and I am",age ,"years old."))
+(R.version.string)
+```
+
+
+
+
