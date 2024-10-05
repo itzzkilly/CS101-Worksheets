@@ -1,0 +1,124 @@
+---
+title: "RWorksheet_Magallanes#3b"
+author: "Killy Magallanes"
+date: "2024-10-03"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Create a data frame using the table below.
+
+a. write the codes
+```{r}
+data <- data.frame( respondents = c(1:20), Sex = c(2,2,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,2), fathers_occupation = c(1,3,3,3,1,2,3,1,1,1,3,2,1,3,3,1,3,1,2,1), persons_at_home = c(5,7,3,8,5,9,6,7,8,4,7,5,4,7,8,8,3,11,7,6), siblings_at_school = c(6,4,4,1,2,1,5,3,1,2,3,2,5,5,2,1,2,5,3,2), types_of_houses =c(1,2,3,1,1,3,3,1,2,3,2,3,2,2,3,3,3,3,3,2))
+print(data)
+```
+
+b. Describe the data. get the structure or the summary of the data
+
+```{r}
+summary(data)
+```
+
+c. Is the mean number of siblings attending is 5?
+No, the  mean number of siblings is 2.95
+
+d. extract the 1st two rows and then all the columns using the subsetting functions. write the codes and its input
+
+```{r}
+subset_data <- data[1:2,]
+subset_data
+```
+
+e. Extract 3rd and 5th row with 2nd and 4th column. write the codes and its result
+
+```{r}
+subset_d <- data[c(3,5), c(2,4)]
+subset_d
+```
+
+f. select the variable types of houses then store the vector that results as types_houses. write the codes
+```{r}
+types_houses <- data$types_of_houses
+types_houses
+```
+g. select only all males respondent that their father occupation was farmer. Write the codes and its output
+
+```{r}
+male_farmers <- data[data$Sex == 1 & data$fathers_occupation == 1,]
+print(male_farmers)
+```
+
+h. select only all females respondent that have greater than or equal to 5 number of siblings attending school. write the codes and its output
+
+
+```{r}
+female_siblings <- data[data$Sex == 2 & data$siblings_at_school >= 5, ]
+
+female_siblings
+```
+
+2. Write a R program to create an empty data frame. Using the followig codes
+
+```{r}
+df = data.frame(Ints=integer(), 
+                Doubles=double(), Characters=character(),
+                Logicals=logical(),
+                Factors=factor(),
+                stringsAsFactors = FALSE)
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+Ints=integer() will store integers.
+Doubles = double() will store numeric values.
+Characters = character() will store character strings.
+Logicals = logical(): will store logical (boolean) values, i.e., TRUE or FALSE.
+Factors = factor() will store factors
+stringsAsFactors = FALSE: This ensures that strings are not automatically converted to factors
+
+
+3. Create a .csv file of this.  Save is as HouseholdData.csv
+a. Import the csv file into the R environment. write the codes.
+```{r}
+Household_data <- read.csv("HouseholdData.csv")
+print(Household_data)
+```
+b. Convert the Sex into factor using factor() function and change it into integer.[Legend:
+Male = 1 and Female = 2]. Write the R codes and its output.
+
+c. c. Convert the Type of Houses into factor and change it into integer. [Legend: Wood
+= 1; Congrete = 2; Semi-Congrete = 3]. Write the R codes and its output.
+
+```{r}
+Household_data$Sex <- factor(Household_data$Sex, levels = c("male", "female"), labels = c(1, 2))
+
+Household_data$Types.of.houses <- factor(Household_data$Types.of.houses, levels = c("wood", "congrete", "semi-congrete"), labels = c(1,2,3))
+print(Household_data)
+```
+
+d. on father's occupation, factor it  as Farmer = 1; driver = 2; and others = 3. What is the R code and its output
+
+```{r}
+Household_data$Fathers.Occupation <- factor(Household_data$Fathers.Occupation, levels = c(1,2,3), labels = c("Farmer", "Driver", "Others"))
+print(Household_data)
+```
+e. select only all females respondent that has a father whose occupation is driver. Write the codes and its output
+
+```{r}
+female_drivers <- Household_data[Household_data$Sex == 2 & Household_data$Fathers.Occupation == "Driver", ]
+print(female_drivers)
+```
+f. Select the respondents that have greater than or equal to 5 member of siblings attending school. write the codes and its output
+
+```{r}
+respondents_with_siblings <- subset(Household_data, Siblings.at.school >= 5)
+respondents_with_siblings
+```
+4. Interpret the graph
+
+The graph visualizes the changes in sentiment among tweets over a specific week. The spikes in negative sentiment, especially on July 15 and July 20, may indicate reactions to particular events or news stories, while the peak in positive sentiment on July 18 suggests a shift in public mood or response to certain developments.
+
+
