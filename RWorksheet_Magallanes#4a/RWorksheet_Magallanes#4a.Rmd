@@ -1,0 +1,101 @@
+---
+title: "RWorksheet_Magallanes#4a"
+author: "Killy Magallanes"
+date: "2024-10-14"
+output: pdf_document
+---
+
+1. The table below shows the data about shoe size and height. Create a data frame. 
+
+
+```{r}
+Household_Data <- read_excel("C:\\Users\\killy\\Documents\\pushed\\RWorksheet_Magallanes#4a\\household_Data.xlsx")
+head(Household_Data, n = 10)
+```
+a. It displays the shoe size, height, and gender in column
+
+b. Create a subset by males and females with their corresponding shoe size and height. What is the result? show the Rscript
+```{r}
+female_data <- subset(Household_Data, Gender == "F")
+
+male_data <- subset(Household_Data, Gender == "M")
+
+female_data
+male_data
+```
+
+c. Find the mean of shoe size  and height of the respondents. write the R scripts  and its result.
+
+```{r}
+mean_shoesize <- mean(Household_Data$Shoe_size)
+mean_shoesize
+
+mean_height <- mean(Household_Data$Height)
+mean_height
+```
+d. Is there a relationship between shoe size and height? Why?
+
+- Yes, the taller the respondent, the longer his/her feet
+
+FACTORS
+
+2. construct character vectors months to a factor with factor() and assign the result to factor_months_vector. Print out factor_months_vector and assert that R prints out the factor levels below thee actual values.
+
+Consider data consisting of the names of months:
+"March","April","January","November","January",
+"September","October","September","November","August",
+"January","November","November","February","May","August", "July","December","August","August","September","November","February",|
+April")
+
+```{r}
+months_vector <- c("March", "April", "January", "November", "January", "September", "October", "September", "November", "August", "January", "November", "November", "February", "May", "August", "July", "December", "August", "August", "September", "November", "February", "April")
+
+factor_months_vector <- factor(months_vector)
+factor_months_vector
+print(levels(factor_months_vector))
+```
+3. Then check the summary() of the months_vector and factor_months_vector. Interpret the results of both vectors. Are they both equally useful in this  case?
+
+
+```{r}
+summary(months_vector)
+
+
+summary(factor_months_vector)
+```
+Summary function will return basic information about the vector, such as the length (i.e., the total number of values) and other high-level characteristics. It returns a count of how many times each factor level appears in the vector.
+
+
+4. Create a vector and factor for the table
+```{r}
+direction_vector <- c("East", "West", "North")
+direction_vector
+frequency_vector <- c(1,4,3)
+frequency_vector
+
+direction_factor <- factor(direction_vector)
+direction_factor
+
+frequency_factor <- factor(frequency_vector)
+frequency_factor
+```
+
+5. Enter the data below in Excel with the file name = import_march.csv
+
+a. Import the excel file into the Environment pane using read.table() function. Write the code.
+```{r}
+data <- read.table("C:/Users/killy/Documents/pushed/RWorksheet_Magallanes#4a/import_march.csv", header=TRUE, sep=",",stringsAsFactors = FALSE)
+head(data)
+
+```
+
+b. View the dataset. Write the R scripts and its result
+
+```{r}
+View(data)
+```
+
+
+
+
+
