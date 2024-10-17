@@ -8,9 +8,12 @@ output: pdf_document
 1. The table below shows the data about shoe size and height. Create a data frame. 
 
 
-```{r}
+```{r setup, include=FALSE}
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+install.packages("readxl")
+library(readxl)
 Household_Data <- read_excel("C:\\Users\\killy\\Documents\\pushed\\RWorksheet_Magallanes#4a\\household_Data.xlsx")
-head(Household_Data, n = 10)
+print(Household_Data)
 ```
 a. It displays the shoe size, height, and gender in column
 
