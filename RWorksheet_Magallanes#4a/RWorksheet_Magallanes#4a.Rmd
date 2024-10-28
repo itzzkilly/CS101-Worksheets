@@ -99,6 +99,122 @@ View(data)
 ```
 
 
+Using Conditional Statements (IF-ELSE)
+6. Full Search
+
+a. Create an R Program that allows the User to randomly select numbers from 1 to 50.
+Then display the chosen number. If the number is beyond the range of the selected choice,
+it will have to display a string “The number selected is beyond the range of 1 to 50”. If
+number 20 is inputted by the User, it will have to display “TRUE”, otherwise display the
+input number.
+
+```{r}
+number <- readline(prompt="Enter a number from 1-50")
+number
+```
+
+
+```{r}
+if (number <= 1 && number >=50){
+  print("The number selected is beyond the range of 1 to 50")
+} else if (number == 20){
+  print("TRUE")
+} else{
+  print(number)
+}
+```
+7. Change
+a. 
+
+```{r}
+min_bills <- function(price) {
+  bill_count <- 0
+  
+  if (price >= 1000) {
+    bill_count <- bill_count + price %/% 1000
+    price <- price %% 1000
+  }
+  
+  if (price >= 500) {
+    bill_count <- bill_count + price %/% 500
+    price <- price %% 500
+  }
+  
+  if (price >= 200) {
+    bill_count <- bill_count + price %/% 200
+    price <- price %% 200
+  }
+  
+  if (price >= 100) {
+    bill_count <- bill_count + price %/% 100
+    price <- price %% 100
+  }
+  
+  if (price >= 50) {
+    bill_count <- bill_count + price %/% 50
+  }
+  
+  print(bill_count)
+}
+min_bills(1250) 
+```
+8. 
+
+a. Create a dataframe from the above table. Write the R codes and its output.
+```{r}
+Math_Score <- data.frame(
+  Name = c("Annie", "Thea", "Steve", "Hanna"),
+  Grade1 = c(85, 65, 75, 95),
+  Grade2 = c(65, 75, 55, 75),
+  Grade3 = c(85, 90, 80, 100),
+  Grade4 = c(100, 90, 85, 90))
+
+Math_Score
+
+
+```
+b. Without using the rowMean function, output the average score of students whose average
+math score over 90 points during the semester. write R code and its output.
+
+```{r}
+for (i in 1:nrow(Math_Score)) {
+  avg_score <- sum(Math_Score[i, 2:5]) / 4
+  print(paste0(Math_Score$Name[i], "'s average grade this semester is: ", avg_score))
+}
+```
+c. Without using the mean function, output as follows for the tests in which the average
+score was less than 80 out of 4 tests.
+```{r}
+for (j in 2:ncol(Math_Score)) {
+  avg_test_score <- sum(Math_Score[, j]) / nrow(Math_Score)  
+  if (avg_test_score < 80) {
+    test_number <- j - 1
+    print(paste("The", test_number, "th test was difficult."))
+  }
+}
+```
+
+d. Without using the max function, output as follows for students whose highest score for
+a semester exceeds 90 points.
+Example Output: Annie’s highest grade this semester is 95.
+
+```{r}
+for (i in 1:nrow(Math_Score)) {
+  highest_score <- Math_Score[i, 2]  
+  for (j in 3:ncol(Math_Score)) {
+    if (Math_Score[i, j] > highest_score) {
+      highest_score <- Math_Score[i, j]  # Update if a higher score is found
+    }
+  }
+ if (highest_score > 90) {
+    print(paste(Math_Score$Name[i], "'s highest grade this semester is", highest_score))
+  }
+}
+
+```
+
+
+
 
 
 
