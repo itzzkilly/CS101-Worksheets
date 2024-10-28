@@ -36,21 +36,28 @@ for (i in 1:num_lines) {
 up to 500. Use repeat and break statements. Write the R Scripts and its output.
 
 ```{r}
-start_num <- as.numeric(readline(prompt = "Enter a number to start the Fibonacci sequence: "))
-
-a <- 0
-b <- 1
-
-repeat {
-  next_fib <- a + b
-  a <- b
-  b <- next_fib
-  if (next_fib > 500) {
-    break
+fibonacci_sequence <- function(start) {
+  a <- 0
+  b <- 1
+  
+  repeat {
+    fib <- a + b
+    a <- b
+    b <- fib
+    if (fib > 500) {
+      break
+    }
+    if (fib >= start) {
+      cat(fib, "\n")
+    }
   }
-  if (next_fib >= start_num) {
-    cat(next_fib, "\n")
-  }
+}
+user_input <- as.numeric(readline(prompt = "Enter a starting number for Fibonacci sequence: "))
+if (!is.na(user_input) && user_input >= 0) {
+  cat("Fibonacci sequence starting from", user_input, "up to 500:\n")
+  fibonacci_sequence(user_input)
+} else {
+  cat("Please enter a valid non-negative number.\n")
 }
 ```
 Using Basic Graphics (plot(),barplot(),pie(),hist())
@@ -199,7 +206,5 @@ Alexafile
 ```
 a. Rename the white and black variants by using gsub() function.
 
-```{r}
-RObject$columnName <- gsub("Old Name", "New Name", RObject$columnName)
-```
+
 
