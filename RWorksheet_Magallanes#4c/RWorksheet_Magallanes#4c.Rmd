@@ -1,0 +1,37 @@
+---
+title: "RWorksheet_Magallanes#4c"
+author: "Killy Magallanes"
+date: "2024-11-04"
+output: pdf_document
+---
+1. Use the dataset mpg
+a. a. Show your solutions on how to import a csv file into the environment
+```{r}
+library(ggplot2)
+ds_mpg <- read.csv("mpg.csv")
+ds_mpg
+```
+b. Which variables from mpg dataset are categorical?
+
+Manufacturer, model, year, tans, drv, fl,class
+
+c. Which are continous variables?
+disp,cty,hwy
+
+2. Which manufacturer has the most models in this data set? Which model has the most variations? Show your answer.
+
+a. Group the manufacturers and find the unique models. show your codes and result.
+```{r}
+library(dplyr)
+library(tidyr)
+unique_model <- ds_mpg %>%
+              group_by(manufacturer) %>%
+              summarise(unique_modes = list(unique(model)))
+unique_models <- unique_model %>%
+  unnest(unique_modes)
+print(unique_models)
+```
+b. graph the result using the plot() and ggplot().
+
+
+
